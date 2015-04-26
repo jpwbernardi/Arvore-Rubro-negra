@@ -1,17 +1,17 @@
 class Main{
 
     public static void main(String args[]){
-        Nodo raiz = new Nodo(10);
-        raiz.add(5);
-        raiz.add(10);
-        raiz.add(7);
-        raiz.add(3);
-        raiz.add(15);
-        raiz.add(12);
-        raiz.add(17);
-        raiz.add(16);
+        Arvore a = new Arvore(11);
+        a.add(2);
+        a.add(14);
+        a.add(15);
+        a.add(1);
+        a.add(7);
+        a.add(8);
+        a.add(5);
+        a.add(4);
 
-        raiz.print();
+        a.raiz.print();
 
         //System.out.println("\n\n[" + raiz.onde(15).info + "][" + raiz.onde(29) + "][" + raiz.onde(10).info + "]");
 
