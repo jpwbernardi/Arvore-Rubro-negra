@@ -11,6 +11,8 @@ class Main{
         a.add(5);
         a.add(4);
 
+        a.delete(a.encontra(5));
+
         a.raiz.print();
 
         //System.out.println("\n\n[" + raiz.onde(15).info + "][" + raiz.onde(29) + "][" + raiz.onde(10).info + "]");

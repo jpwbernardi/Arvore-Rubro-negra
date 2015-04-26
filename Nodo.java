@@ -28,4 +28,9 @@ class Nodo{
         if (this.dir != null) this.dir.print();
     }
 
+    public Nodo minimo(){
+        if(esq != null) return esq.minimo();
+        else return this;
+    }
+
 }
