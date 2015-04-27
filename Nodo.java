@@ -23,7 +23,7 @@ class Nodo{
     }
 
     public void print() {
-        System.out.println(this + ": " + this.esq + " <- (" + this.info + "  +  " + this.cor + ") -> " + this.dir + "  ~~~  Cor: " + this.cor);
+        System.out.println(this + ": " + this.esq + " <- (" + this.info + "  +  " + (this.cor ? "V" : "P") + ") -> " + this.dir);
         if (this.esq != null) this.esq.print();
         if (this.dir != null) this.dir.print();
     }

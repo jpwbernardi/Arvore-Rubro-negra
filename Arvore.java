@@ -79,7 +79,7 @@ class Arvore{
         if(u.pai == null) raiz = v;
         else if(u == u.pai.esq) u.pai.esq = v;
         else u.pai.dir = v;
-        v.pai = u.pai;
+        if(v != null) v.pai = u.pai;
     }
 
     public void delete(Nodo z){
@@ -113,7 +113,7 @@ class Arvore{
 
     public void delFix(Nodo x){
         Nodo w;
-        while(x != raiz && x.cor == false){
+        while(x != null && x != raiz && x.cor == false){
             if(x == x.pai.esq){
                 w = x.pai.dir;
                 if(w.cor){ //W é vermelho ?
@@ -164,7 +164,7 @@ class Arvore{
                 }
             }
         }
-        x.cor = false;
+        if(x != null) x.cor = false;
     }
 
     public Nodo encontra(int k){
