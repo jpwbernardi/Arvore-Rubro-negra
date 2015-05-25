@@ -40,7 +40,7 @@ class Arvore{
         while(z.pai != null && z.pai.cor){ //Enquanto a cor for do nodo for vermelha
             if(z.pai == z.pai.pai.esq){
                 y = z.pai.pai.dir;
-                if(y.cor){ //Se cor de y é vermelha
+                if(y != null && y.cor){ //Se cor de y é vermelha
                     z.pai.cor = false;
                     y.cor = false;
                     z.pai.pai.cor = true;
@@ -56,7 +56,7 @@ class Arvore{
                 }
             }else{ //Mesma coisa, só onde inverte direito e esquerdo
                 y = z.pai.pai.esq;
-                if(y.cor){ //Se cor de y é vermelha
+                if(y != null && y.cor){ //Se cor de y é vermelha
                     z.pai.cor = false;
                     y.cor = false;
                     z.pai.pai.cor = true;
@@ -72,7 +72,7 @@ class Arvore{
                 }
             }
         }
-        raiz.cor = false;
+        if(raiz != null) raiz.cor = false;
     }
 
     public void transplant(Nodo u, Nodo v){

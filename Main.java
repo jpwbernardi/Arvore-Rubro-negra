@@ -1,20 +1,26 @@
+import java.util.*;
+
 class Main{
-
+	
     public static void main(String args[]){
-        Arvore a = new Arvore(11);
-        a.add(2);
-        a.add(14);
-        a.add(15);
-        a.add(1);
-        a.add(7);
-        a.add(8);
-        a.add(5);
-        a.add(4);
-
-        a.delete(a.encontra(7));
-        //a.delete(a.encontra(2));
-        a.raiz.print();
-
+		Random gerador = new Random();
+        long inicio, aux, media = 0, total;
+        
+        Arvore a = new Arvore(gerador.nextInt(2147483647));
+        
+        inicio = System.nanoTime();
+        
+        for(int i = 0; i < 200_000; i++){
+			aux = System.nanoTime();
+			a.add(gerador.nextInt(2147483647));
+			media += System.nanoTime() - aux;
+		}
+        
+        total = System.nanoTime() - inicio;
+        media /= 200_000;
+		System.out.printf("Média de tempo de inserção: %.10f\n", media/ 10e9);
+		System.out.printf("Tempo total de inserção: %.10f\n", total / 10e9);
+        
         //System.out.println("\n\n[" + raiz.onde(15).info + "][" + raiz.onde(29) + "][" + raiz.onde(10).info + "]");
 
         //raiz.printOrdenado();
