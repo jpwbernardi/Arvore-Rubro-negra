@@ -4,6 +4,13 @@ class Arvore{
     public Arvore(int k){
         raiz = new Nodo(k);
     }
+    
+    public Arvore busca50(int chave){
+		Arvore x50 = new Arvore(-1123456789);
+		Count a = new Count();
+		raiz.caminha(x50, a, chave);
+		return x50;
+	}
 
     public void left_rotate(Nodo x){
         Nodo y = x.dir;

@@ -32,5 +32,18 @@ class Nodo{
         if(esq != null) return esq.minimo();
         else return this;
     }
+    
+    public void caminha(Arvore a, Count i, int chave){
+		if(this.esq != null) this.esq.caminha(a, i, chave);
+		
+		if(this.info > chave && i.i < 50){
+			if(a == null) a = new Arvore(this.info);
+			else a.add(this.info);
+			i.i++;
+		}
+		
+		if(this.dir != null) this.dir.caminha(a, i, chave);
+		
+	}
 
 }
