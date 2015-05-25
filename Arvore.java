@@ -1,12 +1,16 @@
 class Arvore{
     Nodo raiz;
+    
+    public Arvore(){
+		raiz = null;
+	}
 
     public Arvore(int k){
         raiz = new Nodo(k);
     }
     
     public Arvore busca50(int chave){
-		Arvore x50 = new Arvore(-1123456789);
+		Arvore x50 = new Arvore();
 		Count a = new Count();
 		raiz.caminha(x50, a, chave);
 		return x50;
@@ -37,9 +41,12 @@ class Arvore{
     }
 
     public void add(int k){
-        Nodo aux = raiz.busca(k);
-        if(k > aux.info) this.addFix(aux.dir = new Nodo(k, aux));
-        else if(k < aux.info) this.addFix(aux.esq = new Nodo(k, aux));
+		if(raiz == null) raiz = new Nodo(k);
+		else{
+			Nodo aux = raiz.busca(k);
+			if(k > aux.info) this.addFix(aux.dir = new Nodo(k, aux));
+			else if(k < aux.info) this.addFix(aux.esq = new Nodo(k, aux));
+		}
     }
 
     public void addFix(Nodo z){
