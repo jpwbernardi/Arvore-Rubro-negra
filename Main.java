@@ -28,7 +28,7 @@ class Main{
 		}
         
         total = System.nanoTime() - inicio;
-        media /= 200_000;
+        media /= 10_000;
 		System.out.printf("Média de tempo de busca: %.10f\n", media/ 10e9);
 		
 		System.out.printf("Tempo total: %.10f\n", total / 10e9);
