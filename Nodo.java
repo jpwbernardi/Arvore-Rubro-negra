@@ -45,5 +45,25 @@ class Nodo{
 		if(this.dir != null) this.dir.caminha(a, i, chave);
 		
 	}
+	
+	public void graph() {
+		if (this.cor) { // coloring
+			System.out.println("\t" + this.info + " [style = filled, fillcolor = red];");
+		} else {
+			System.out.println("\t" + this.info + " [style = filled, fillcolor = black, fontcolor = white];");
+		}
+		if (this.esq != null) {
+			System.out.println("\t" + this.info + " -> " + this.esq.info + " [label = \" left\"];");
+			this.esq.graph();
+		} else {
+			System.out.println("\t" + this.info + " -> nil [label = \" left\"];");
+		}
+		if (this.dir != null) {
+			System.out.println("\t" + this.info + " -> " + this.dir.info + " [label = \" right\"];");
+			this.dir.graph();
+		} else {
+			System.out.println("\t" + this.info + " -> nil [label = \" right\"];");
+		}
+	}
 
 }

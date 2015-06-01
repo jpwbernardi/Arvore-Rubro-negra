@@ -109,11 +109,11 @@ class Arvore{
             y = z.dir.minimo();
             yCorOriginal = y.cor;
             x = y.dir;
-            if(y.pai == z) x.pai = y;
-            else{
+            if(y != null && x != null && y.pai == z) x.pai = y;
+            else if(y != null){
                 transplant(y, y.dir);
                 y.dir = z.dir;
-                y.dir.pai = y;
+                if(y.dir != null) y.dir.pai = y;
             }
             transplant(z, y);
             y.esq = z.esq;
@@ -186,5 +186,13 @@ class Arvore{
         if(aux.info != k) return null;
         else return aux;
     }
+    
+    public void graph() {
+		System.out.println("digraph RBTree {");
+		if(raiz != null) this.raiz.graph();
+		System.out.println("\tnil [style = filled, fillcolor = black, fontcolor = white];");
+		//System.out.println("\tnil -> " + this.root.key + ";");
+		System.out.println("}");
+	}
 
 }
